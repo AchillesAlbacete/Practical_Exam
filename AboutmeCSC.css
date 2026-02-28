@@ -1,0 +1,23 @@
+body{
+background-image: url(agavebg.jpg) ;
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-position: center;
+ background-size: cover;
+    margin: 0;
+    padding: 20px;
+}
+
+.Headerr{
+ display: inline-block;
+    padding: 20px 45px;
+    cursor: pointer;
+    border: 1px solid #000;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 12px; /* Curved button edges */
+    transition: all 0.2s ease;
+    background: linear-gradient(blue, white);
+}

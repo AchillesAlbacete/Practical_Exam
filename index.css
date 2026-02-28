@@ -1,0 +1,344 @@
+* { box-sizing: border-box; }
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  color: #111;
+  
+  /* BACKGROUND IMAGE SYNTAX */
+   background-image:url("https://i.ibb.co/YT8K2hRZ/agavebg.jpg"); /* Replace with your image link */
+  background-size: cover;                      /* Ensures image fills the screen */
+  background-position: center;                 /* Centers the image */
+  background-attachment: fixed;                /* Keeps image still while scrolling */
+  background-repeat: no-repeat;                /* Prevents tiling */
+  background-color: #fffd82;                   /* Fallback color if image fails */
+}
+
+/* MANDATORY COMBINATORS */
+.site-footer p { margin: 0; } /* Descendant */
+.site-nav > ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  justify-content: center; /* Centers the buttons horizontally */
+}
+
+/* HEADER */
+.site-header {
+  background-color: #ffffff;
+  padding: 16px 0;
+  border-bottom: 1px solid #e6e6e6;
+  margin-bottom: 32px;
+}
+.header-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  
+  /* CENTER TEXT CONTENT */
+  text-align: center; 
+}
+.site-title {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #0400fff5, #000000);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+.site-nav a {
+  display: inline-block;
+  padding: 6px 14px;
+  background-color: #0b57d0;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+/* STYLING FOR THE NEW ABOUT IMAGE */
+.about-image {
+  margin-left: auto;  /* ADD THIS */
+  margin-right: auto; /* ADD THIS */
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  border-radius: 50%; /* Keeps the image circular */
+  margin-bottom: 15px;
+  display: block;
+
+  /* BORDER SYNTAX */
+  border: 4px solid rgb(187, 182, 180); /* Thickness, Style, and Color */
+  padding: 5px;              /* Creates a small white gap between image and border */
+  background-color: #ffffff;    /* Ensures the gap stays white */
+  
+  
+}
+
+/* LAYOUT ENGINE (FLEXBOX) */
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px 48px 24px; }
+.layout { display: flex; flex-direction: column; gap: 48px; }
+
+@media (min-width: 768px) {
+  .layout { flex-direction: row; }
+  .sidebar { flex: 1; }
+  main { flex: 2.5; }
+}
+
+/* SIDEBAR (WIDGETS POSITIONING) */
+/* --- RESTORED ORIGINAL SIDEBAR DESIGN --- */
+.sidebar {
+  display: flex;            /* Required Flexbox Engine */
+  flex-direction: row;      /* Side-by-side positioning */
+  flex-wrap: wrap;          /* Stacks on mobile */
+  gap: 30px;                /* Original spacing between widgets */
+  background: #ffffff;      /* Original white background */
+  padding: 35px;            /* Original deep padding */
+  border-radius: 15px;      /* Original rounded corners */
+  border: 1px solid #eee;   /* Original subtle border */
+}
+
+/* This ensures the widgets share the space 50/50, just like your Grid did */
+.widget { 
+  flex: 1 1 300px; 
+}
+
+.widget h3 {
+  margin-top: 0;
+  color: #111;
+  font-size: 1.3rem;
+}
+
+/* Form spacing from your original */
+form .field { 
+  margin-bottom: 10px; 
+}
+
+label { 
+  display: block; 
+  font-size: 0.9rem; 
+  margin-bottom: 5px; 
+}
+
+input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+/* Original Subscribe Button Logic */
+button[type="submit"] {
+  padding: 10px 20px;
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button[type="submit"]:hover { 
+  background-color: #d32f2f; 
+  transform: translateY(-2px); 
+}
+/* POSTS */
+.post-list { display: flex; flex-wrap: wrap; gap: 20px; }
+.post {
+  flex: 1 1 calc(33.333% - 20px);
+  min-width: 280px;
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+.post:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(0,0,0,0.1); }
+.post-footer { display: flex; gap: 8px; align-items: center; border-top: 1px solid #eee; padding-top: 15px; margin-top: auto; }
+
+/* DRAWER */
+/* --- RESTORED SIDE DRAWER & CATEGORY DESIGN --- */
+/* --- RESTORED NAVIGATION EFFECTS --- */
+
+.site-nav a {
+  display: inline-block;
+  padding: 8px 18px;        /* Original standard size */
+  background-color: #0b57d0; /* Original Blue */
+  color: #ffffff;
+  font-weight: bold;         /* Original bolding */
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.1s ease; /* Smooth hover & click */
+}
+
+/* 1. HOVER EFFECT (Turns dark blue) */
+.site-nav a:hover {
+  background-color: #0842a0;
+  text-decoration: none;
+}
+
+/* 2. CLICK EFFECT (Subtle scale down) */
+.site-nav a:active {
+  transform: scale(0.96); /* This is the "click" effect you had */
+}
+
+/* --- RE-SYNCING THE HEADER DESIGN --- */
+.site-header {
+  background-color: #ffffff;
+  padding: 30px 0;
+  border-bottom: 1px solid #e6e6e6;
+  width: 100%; /* Spans screen width */
+}
+
+.h.header-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  text-align: center; /* Centers the Site Title and Tagline */
+}
+.side-drawer {
+  position: fixed;
+  left: 0;
+  top: 300px;
+  width: 260px;
+  background: #ffffff;
+  border: 2px solid #0b57d0;
+  border-left: none;
+  border-radius: 0 12px 12px 0;
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.1);
+  z-index: 1000;
+  transform: translateX(-220px); 
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Restoring the Drawer Hover effect */
+.side-drawer:hover { 
+  transform: translateX(0); 
+}
+
+.drawer-content { 
+  padding: 24px 50px 24px 24px; 
+}
+
+/* --- THE CATEGORY LIST DESIGN --- */
+.category-list {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.category-list li a {
+  display: block;
+  padding: 10px 12px;
+  background: #f8f9fa; /* Original light gray */
+  border-radius: 6px;
+  font-weight: bold;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+/* RESTORING THE BLUE HOVER & SLIDE */
+.category-list li a:hover {
+  background: #0b57d0; /* Original Blue */
+  color: #ffffff;      /* White text on hover */
+  transform: translateX(8px); /* The sliding effect */
+}
+
+.drawer-tab {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 40px;
+  background: #0b57d0;
+  color: white;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  letter-spacing: 2px;
+  border-radius: 0 10px 10px 0;
+}
+/* --- RESTORED ORIGINAL FOOTER DESIGN --- */
+.site-footer {
+  background-color: #ffffff; /* Explicitly White */
+  padding: 40px 24px;        /* Original deep padding */
+  text-align: center;
+  border-top: 1px solid #e6e6e6;
+  margin-top: 40px;          /* Space between the yellow content and white footer */
+  width: 100%;               /* Spans full width of screen */
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0 0;
+  display: flex;             /* Using Flexbox for the links */
+  justify-content: center;
+  gap: 20px;
+}
+
+/* MANDATORY COMBINATOR (Descendant) */
+.site-footer p { 
+  margin: 0; 
+  color: #111; 
+  font-size: 1rem;
+}
+
+.footer-links a {
+  color: #0b57d0;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================
+   NEW CUSTOMIZATIONS (REQUESTED)
+   ========================================= */
+
+/* 1. UNIQUE COLORS FOR PROJECT FLEX BOXES */
+.post:nth-child(1) { background-color: #ffeff2; border-left: 5px solid #e91e63; } /* Pinkish */
+.post:nth-child(2) { background-color: #eef2ff; border-left: 5px solid #3f51b5; } /* Bluish */
+.post:nth-child(3) { background-color: #e6f4ea; border-left: 5px solid #00796b; } /* Greenish */
+
+/* 2. CLICK TO VIEW LINK ANIMATION */
+.post-footer a {
+  display: inline-block;
+  padding: 6px 14px;
+  background-color: #111;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+/* Hover: Scale and color change */
+.post-footer a:hover {
+  background-color: #0b57d0;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Click: Pressed down effect */
+.post-footer a:active {
+  transform: translateY(-1px) scale(0.95);
+}
